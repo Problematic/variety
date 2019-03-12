@@ -1,5 +1,7 @@
 # variety
 
+A tiny JavaScript library for working with random values
+
 ## usage
 
 ```javascript
