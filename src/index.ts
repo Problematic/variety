@@ -68,19 +68,22 @@ function sampleWeighted<T>(
     choices = items;
   }
 
-  const totalWeight = choices.reduce((acc, [_, weight]) => acc + weight, 0);
-  const targetWeight = rand(totalWeight, rng);
+  const choice = choices.reduce<WeightedChoice<T>>(
+    (best, next) => {
+      const pair: WeightedChoice<T> = [next[0], rng() ** (1 / next[1])];
 
-  let acc = 0;
+      if (!best) {
+        return pair;
+      } else if (Math.max(best[1], pair[1]) === best[1]) {
+        return best;
+      } else {
+        return pair;
+      }
+    },
+    null as any
+  )[0];
 
-  for (let [value, weight] of choices) {
-    acc += weight;
-    if (targetWeight <= acc) {
-      return value;
-    }
-  }
-
-  return choices[choices.length - 1][0];
+  return choice;
 }
 
 export { rand, sample, sampleWeighted };
