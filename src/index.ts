@@ -46,27 +46,41 @@ function sample<T>(items: T[], rng = Math.random): T {
 }
 
 export interface WeightedChoice<T> extends Array<number | T> {
-  0: number;
-  1: T;
+  0: T;
+  1: number;
 }
 
-/** Returns a pseudorandom selection from a list of [weight, element] pairs */
+/** Returns a pseudorandom selection from a list of [item, weight] pairs */
 function sampleWeighted<T>(items: WeightedChoice<T>[], rng?: PRNG): T;
 
-function sampleWeighted<T>(items: WeightedChoice<T>[], rng = Math.random): T {
-  const totalWeight = items.reduce((acc, [weight]) => acc + weight, 0);
+/** Returns a pseudorandom selection from a Map of `item => weight` key-value pairs */
+function sampleWeighted<T>(items: Map<T, number>, rng?: PRNG): T;
+
+function sampleWeighted<T>(
+  items: WeightedChoice<T>[] | Map<T, number>,
+  rng = Math.random
+): T {
+  let choices;
+
+  if (items instanceof Map) {
+    choices = Array.from(items.entries());
+  } else {
+    choices = items;
+  }
+
+  const totalWeight = choices.reduce((acc, [_, weight]) => acc + weight, 0);
   const targetWeight = rand(totalWeight, rng);
 
   let acc = 0;
 
-  for (let [weight, value] of items) {
+  for (let [value, weight] of choices) {
     acc += weight;
     if (targetWeight <= acc) {
       return value;
     }
   }
 
-  return items[items.length - 1][1];
+  return choices[choices.length - 1][0];
 }
 
 export { rand, sample, sampleWeighted };

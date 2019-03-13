@@ -27,6 +27,8 @@ Returns a pseudorandom float between `min` (inclusive) and `max` (exclusive)
 
 Returns a (pseudo)randomly sampled element from the given list
 
-#### `sampleWeighted<T>(items: [number, T][]): T`
+#### `sampleWeighted<T>(items: [T, number][]): T`
 
-Returns a weighted pseudorandom sample from a list of `[weight, item]` tuples. Weights are relative to all other weights in the collection, and don't need to be normalized.
+#### `sampleWeighted<T>(items: Map<T, number>): T`
+
+Returns a weighted pseudorandom sample from either a list of `[item, weight]` tuples, or a Map object with `item => weight` key value pairs. Weights are relative to all other weights in the collection, and don't need to be normalized.

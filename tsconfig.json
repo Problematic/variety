@@ -7,7 +7,8 @@
     "outDir": "./dist",
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "downlevelIteration": true
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts"]

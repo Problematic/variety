@@ -35,23 +35,29 @@ describe('variety', () => {
   });
 
   describe('sampleWeighted()', () => {
-    it('accepts a list of weight/item pairs', () => {
-      const items: WeightedChoice<string>[] = [[1, 'a'], [4, 'b']];
+    it('accepts a list of item/weight pairs', () => {
+      const items: WeightedChoice<string>[] = [['a', 1], ['b', 4]];
+
+      expect(sampleWeighted(items, rng)).toBe('b');
+    });
+
+    it('accepts a Map<TItem, number> object', () => {
+      const items = new Map([['a', 1], ['b', 4]]);
 
       expect(sampleWeighted(items, rng)).toBe('b');
     });
 
     it('delegates to rng fn when provided', () => {
-      sampleWeighted([[1, 'a']], rng);
+      sampleWeighted([['a', 1]], rng);
 
       expect(rng).toHaveBeenCalled();
     });
 
     it('delegates to Math.random when no rng fn is provided', () => {
       const items: WeightedChoice<string>[] = [
-        [0.025, 'a'],
-        [0.5, 'b'],
-        [0.3, 'c'],
+        ['a', 0.025],
+        ['b', 0.5],
+        ['c', 0.3],
       ];
 
       expect(sampleWeighted(items)).toBe('b');
