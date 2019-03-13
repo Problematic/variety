@@ -7,6 +7,7 @@
 - Update incorrect changelog version for v0.1.1
 - Fix incorrect usage example in readme
 - Add `repository` field to `package.json`
+- Add installation instructions
 
 ## [v0.1.1] - 2017-03-13
 

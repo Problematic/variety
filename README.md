@@ -2,6 +2,12 @@
 
 A tiny JavaScript library for working with random values
 
+## installation
+
+```bash
+yarn add variety
+```
+
 ## usage
 
 ```javascript
