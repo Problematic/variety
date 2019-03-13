@@ -2,6 +2,8 @@
 
 ## [vNext]
 
+## [v0.1.1] - 2017-03-13
+
 ### Changed
 
 - Use a single-pass WRS algo [Efraimidis & Spirakis, 2005] for `sampleWeighted`
