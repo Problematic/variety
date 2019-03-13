@@ -7,14 +7,14 @@ A tiny JavaScript library for working with random values
 ```javascript
 import { sampleWeighted } from 'variety';
 
-const items = [[1, 'a'], [5, 'b']];
+const items = [['a', 1], ['b', 5]];
 
 const choice = sampleWeighted(
   items,
   myRng // optional prng function, defaults to Math.random
 );
 
-console.log(choice); // 'a' | 'b'
+console.log(choice); // 'a' | 'b', five times as likely to be 'b'
 ```
 
 ### api

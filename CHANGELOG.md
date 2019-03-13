@@ -2,6 +2,11 @@
 
 ## [vNext]
 
+### Changed
+
+- Update incorrect changelog version for v0.1.1
+- Fix incorrect usage example in readme
+
 ## [v0.1.1] - 2017-03-13
 
 ### Changed
