@@ -2,6 +2,8 @@
 
 ## [vNext]
 
+## [0.1.2] - 2017-03-13
+
 ### Changed
 
 - Update incorrect changelog version for v0.1.1
