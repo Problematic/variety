@@ -1,4 +1,4 @@
-export type PRNG = () => number;
+import { PRNG, WeightedChoice } from './types';
 
 /** Returns a pseudorandom float between 0 (inclusive) and 1 (exclusive) */
 function rand(rng?: PRNG): number;
@@ -45,11 +45,6 @@ function sample<T>(items: T[], rng = Math.random): T {
   return items[Math.floor(rng() * items.length)];
 }
 
-export interface WeightedChoice<T> extends Array<number | T> {
-  0: T;
-  1: number;
-}
-
 /** Returns a pseudorandom selection from a list of [item, weight] pairs */
 function sampleWeighted<T>(items: WeightedChoice<T>[], rng?: PRNG): T;
 
@@ -86,4 +81,11 @@ function sampleWeighted<T>(
   return choice;
 }
 
-export { rand, sample, sampleWeighted };
+function shuffle<T>(coll: T[], rng?: PRNG): T[] {
+  return coll
+    .map((_, idx) => ({ idx, value: rand(rng) }))
+    .sort((a, b) => b.value - a.value)
+    .map(({ idx }) => coll[idx]);
+}
+
+export { rand, sample, sampleWeighted, shuffle };

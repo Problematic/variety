@@ -38,3 +38,7 @@ Returns a (pseudo)randomly sampled element from the given list
 #### `sampleWeighted<T>(items: Map<T, number>): T`
 
 Returns a weighted pseudorandom sample from either a list of `[item, weight]` tuples, or a Map object with `item => weight` key value pairs. Weights are relative to all other weights in the collection, and don't need to be normalized.
+
+#### `shuffle<T>(coll: T[]): T[]`
+
+Returns a shuffled (pseudorandomly sorted) permutation of `coll`. Does not modify `coll`.
