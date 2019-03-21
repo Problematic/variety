@@ -1,5 +1,5 @@
 import { PRNG, WeightedChoice } from './types';
-import { rand, sample, sampleWeighted, shuffle } from './index';
+import { rand, randInt, sample, sampleWeighted, shuffle } from './index';
 
 describe('variety', () => {
   let rng: PRNG;
@@ -20,6 +20,24 @@ describe('variety', () => {
     it('delegates to Math.random when no rng fn is provided', () => {
       expect(rand()).toBe(0.1);
       expect(Math.random).toHaveBeenCalled();
+    });
+  });
+
+  describe('randInt()', () => {
+    it('delegates to rng fn when provided', () => {
+      randInt(1, rng);
+
+      expect(rng).toHaveBeenCalled();
+    });
+
+    it('gives an integer in the interval [min, max)', () => {
+      expect(randInt(2, 4, rng)).toBe(3);
+      expect(randInt(0, 5, rng)).toBe(2);
+    });
+
+    it('gives an integer in the interval [0, max) when min is not provided', () => {
+      expect(randInt(5, rng)).toBe(2);
+      expect(randInt(100, rng)).toBe(50);
     });
   });
 

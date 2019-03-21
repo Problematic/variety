@@ -38,6 +38,28 @@ function rand(
   return rng() * (max - min) + min;
 }
 
+/** Returns a pseudorandom integer between 0 (inclusive) and max (exclusive) */
+function randInt(max: number, rng?: PRNG): number;
+
+/** Returns a pseudorandom integer between min (inclusive) and max (exclusive) */
+function randInt(min: number, max: number, rng?: PRNG): number;
+
+function randInt(
+  min: number,
+  max?: number | PRNG,
+  rng: PRNG = Math.random
+): number {
+  if (typeof max === 'function') {
+    rng = max;
+  }
+  if (typeof max !== 'number') {
+    max = min;
+    min = 0;
+  }
+
+  return Math.floor(rng() * (max - min)) + min;
+}
+
 /** Returns a (pseudo)randomly sampled element from the given list */
 function sample<T>(items: ArrayLike<T>, rng?: PRNG): T;
 
@@ -88,4 +110,4 @@ function shuffle<T>(coll: T[], rng?: PRNG): T[] {
     .map(({ idx }) => coll[idx]);
 }
 
-export { rand, sample, sampleWeighted, shuffle };
+export { rand, randInt, sample, sampleWeighted, shuffle };

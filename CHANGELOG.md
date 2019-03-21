@@ -2,6 +2,10 @@
 
 ## [vNext]
 
+### Added
+
+- Add `randInt` to API
+
 ## [v0.2.1] - 2017-03-21
 
 ### Changed

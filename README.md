@@ -25,11 +25,17 @@ console.log(choice); // 'a' | 'b', five times as likely to be 'b'
 
 ### api
 
-All functions listed below optionally take a pseudorandom number generator of type `PRNG` as their last argument
+All functions listed below optionally take a pseudorandom number generator of type `PRNG` as their last argument (defaults to Math.random)
 
 #### `rand(min = 0, max = 1): number`
 
 Returns a pseudorandom float between `min` (inclusive) and `max` (exclusive)
+
+#### `randInt(max: number): number`
+
+#### `randInt(min: number, max: number): number`
+
+Returns a pseudorandom float between `min` (inclusive) and `max` (exclusive). If only one number is provided, returns a number between `0` (inclusive) and `max` (exclusive)
 
 #### `sample<T>(items: ArrayLike<T>): T`
 
