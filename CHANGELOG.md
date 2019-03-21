@@ -2,8 +2,15 @@
 
 ## [vNext]
 
-- [BREAKING] Move exported types to `types.ts` to clean up imports from lib
+## [0.2.0] - 2017-03-21
+
+### Added
+
 - Add `shuffle` to API
+
+### Changed
+
+- [BREAKING] Move exported types to `types.ts` to clean up imports from lib
 
 ## [0.1.2] - 2017-03-13
 
