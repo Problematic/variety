@@ -33,6 +33,10 @@ describe('variety', () => {
       expect(sample([1, 2, 3, 4, 5])).toBe(1);
       expect(Math.random).toHaveBeenCalled();
     });
+
+    it('accepts a string input', () => {
+      expect(sample('abcde', rng)).toBe('c');
+    });
   });
 
   describe('sampleWeighted()', () => {

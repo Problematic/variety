@@ -2,6 +2,10 @@
 
 ## [vNext]
 
+### Changed
+
+- `sample` now accepts `ArrayLike<T>` instead of `T[]` as its first argument (this allows, for example, sampling from strings)
+
 ## [0.2.0] - 2017-03-21
 
 ### Added

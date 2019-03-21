@@ -39,9 +39,9 @@ function rand(
 }
 
 /** Returns a (pseudo)randomly sampled element from the given list */
-function sample<T>(items: T[], rng?: PRNG): T;
+function sample<T>(items: ArrayLike<T>, rng?: PRNG): T;
 
-function sample<T>(items: T[], rng = Math.random): T {
+function sample<T>(items: ArrayLike<T>, rng = Math.random): T {
   return items[Math.floor(rng() * items.length)];
 }
 

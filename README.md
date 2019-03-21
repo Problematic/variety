@@ -25,11 +25,13 @@ console.log(choice); // 'a' | 'b', five times as likely to be 'b'
 
 ### api
 
-#### `rand(min = 0, max = 1, rng = Math.Random): number`
+All functions listed below optionally take a pseudorandom number generator of type `PRNG` as their last argument
+
+#### `rand(min = 0, max = 1): number`
 
 Returns a pseudorandom float between `min` (inclusive) and `max` (exclusive)
 
-#### `sample<T>(items: T[]): T`
+#### `sample<T>(items: ArrayLike<T>): T`
 
 Returns a (pseudo)randomly sampled element from the given list
 
