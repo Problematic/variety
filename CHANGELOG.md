@@ -2,11 +2,14 @@
 
 ## [vNext]
 
+## [v0.2.1] - 2017-03-21
+
 ### Changed
 
 - `sample` now accepts `ArrayLike<T>` instead of `T[]` as its first argument (this allows, for example, sampling from strings)
+- correct formatting in CHANGELOG
 
-## [0.2.0] - 2017-03-21
+## [v0.2.0] - 2017-03-21
 
 ### Added
 
@@ -16,7 +19,7 @@
 
 - [BREAKING] Move exported types to `types.ts` to clean up imports from lib
 
-## [0.1.2] - 2017-03-13
+## [v0.1.2] - 2017-03-13
 
 ### Changed
 
