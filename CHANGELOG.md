@@ -2,24 +2,30 @@
 
 ## [vNext]
 
+## [v0.2.3] - 2019-12-02
+
 ### Added
 
 - Range (`[number, number]`) argument for `rand`
 
-## [v0.2.2] - 2017-03-21
+### Changed
+
+- Dates in CHANGELOG (what year is it again?)
+
+## [v0.2.2] - 2019-03-21
 
 ### Added
 
 - Add `randInt` to API
 
-## [v0.2.1] - 2017-03-21
+## [v0.2.1] - 2019-03-21
 
 ### Changed
 
 - `sample` now accepts `ArrayLike<T>` instead of `T[]` as its first argument (this allows, for example, sampling from strings)
 - correct formatting in CHANGELOG
 
-## [v0.2.0] - 2017-03-21
+## [v0.2.0] - 2019-03-21
 
 ### Added
 
@@ -29,7 +35,7 @@
 
 - [BREAKING] Move exported types to `types.ts` to clean up imports from lib
 
-## [v0.1.2] - 2017-03-13
+## [v0.1.2] - 2019-03-13
 
 ### Changed
 
@@ -38,13 +44,13 @@
 - Add `repository` field to `package.json`
 - Add installation instructions
 
-## [v0.1.1] - 2017-03-13
+## [v0.1.1] - 2019-03-13
 
 ### Changed
 
 - Use a single-pass WRS algo [Efraimidis & Spirakis, 2005] for `sampleWeighted`
 
-## [v0.1.0] - 2017-03-13
+## [v0.1.0] - 2019-03-13
 
 ### Added
 
@@ -55,13 +61,13 @@
 
 - [BREAKING] Switch tuple order for `sampleWeighted` to `[item, weight]`, to match `Map` item order
 
-## [v0.0.2] - 2017-03-12
+## [v0.0.2] - 2019-03-12
 
 ### Added
 
 - Test and build during `prepare` step to not publish an empty repo to npm
 
-## [v0.0.1] - 2017-03-12
+## [v0.0.1] - 2019-03-12
 
 ### Added
 
