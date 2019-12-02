@@ -9,14 +9,23 @@ function rand(max: number, rng?: PRNG): number;
 /** Returns a pseudorandom float between min (inclusive) and max(exclusive) */
 function rand(min: number, max: number, rng?: PRNG): number;
 
+function rand(range: [number, number], rng?: PRNG): number;
+
 function rand(
-  min: number | PRNG = 0,
+  min: [number, number] | number | PRNG = 0,
   max: number | PRNG = 1,
   rng: PRNG = Math.random
 ): number {
   if (typeof min === 'function') {
     rng = min;
     min = 0;
+  } else if (Array.isArray(min)) {
+    if (typeof max === 'function') {
+      rng = max;
+    }
+
+    max = min[1];
+    min = min[0];
   }
 
   if (typeof max === 'function') {

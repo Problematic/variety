@@ -21,6 +21,13 @@ describe('variety', () => {
       expect(rand()).toBe(0.1);
       expect(Math.random).toHaveBeenCalled();
     });
+
+    it('expands a range argument to min and max', () => {
+      expect(rand([0, 1], rng)).toBe(0.5);
+      expect(rand([0, 10], rng)).toBe(5.0);
+      expect(rand([2, 5], rng)).toBe(3.5);
+      expect(rng).toHaveBeenCalledTimes(3);
+    });
   });
 
   describe('randInt()', () => {

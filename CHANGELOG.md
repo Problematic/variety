@@ -2,6 +2,10 @@
 
 ## [vNext]
 
+### Added
+
+- Range (`[number, number]`) argument for `rand`
+
 ## [v0.2.2] - 2017-03-21
 
 ### Added
